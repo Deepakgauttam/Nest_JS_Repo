@@ -20,20 +20,29 @@ $ npm install
 $ yarn run start
 ```
 # watch mode (automatically restarts the server on code changes)
+```bash
 $ yarn run start:dev
+```
 
 # production mode (build and run the optimized production version)
+```bash
 $ yarn run start:prod
-
+```
 
 # run unit tests
+```bash
 $ yarn run test
+```
 
 # run end-to-end (e2e) tests
+```bash
 $ yarn run test:e2e
+```
 
 # run tests with coverage
+```bash
 $ yarn run test:cov
+```
 
 
 src/
@@ -48,14 +57,19 @@ src/
 
 
 # Generate the users service
+```bash
 $ nest g service users
+```
 
 # Generate the users controller
+```bash
 $ nest g controller users
+```
 
 # Generate the users module
+```bash
 $ nest g module users
-
+```
 
 
 ### How to Use This README:
