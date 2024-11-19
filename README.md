@@ -44,7 +44,8 @@ $ yarn run test:e2e
 $ yarn run test:cov
 ```
 
-
+# Project Structure
+```bash
 src/
 │
 ├── app.module.ts        # Root module
@@ -54,7 +55,7 @@ src/
 │   ├── users.service.ts     # Service that handles user-related business logic
 │   └── users.module.ts      # Module that encapsulates the users feature
 └── ...
-
+```
 
 # Generate the users service
 ```bash
