@@ -1,12 +1,16 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
-    @Get()
-    findAll() {
+    // @Get()    // GET   /users or /users?role=value
+    // findAll() {
+    //     return [];
+    // }
+
+    @Get()    // GET   /users or /users?role=value
+    findAll(@Query('role') role?:'admin' | 'intern' | 'engineer') {  
         return [];
     }
-
     // @Get('interns')    // GET   /users/interns
     // findAllInterns() {
     //     return [];
