@@ -1,7 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
+    constructor(private readonly usersService: UsersService) { }
+    
     // @Get()    // GET   /users or /users?role=value
     // findAll() {
     //     return [];
@@ -17,7 +20,7 @@ export class UsersController {
     // }
 
     @Get(':id')
-    findOne(@Param('id') id: string) {
+    findOne(@Param('id') id: number) { // GET /users/:id
         return { id };
     }
 
