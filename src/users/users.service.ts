@@ -54,14 +54,17 @@ export class UsersService {
         return newUser;
     }
     update(id: number, updatedUser: { name?: string, email?: string, role?: 'admin' | 'intern' | 'engineer' }) {
-        const user = this.users.map(user => {
+        // Update the users array by replacing the specific user
+        this.users = this.users.map(user => {
             if (user.id === id) {
-                return { ...user, ...updatedUser };
+                return { ...user, ...updatedUser }; // Update the user
             }
             return user;
         });
-        return this.findOne(id);
+        return this.findOne(id); // Now it will return the updated user
     }
+
+    
 
     delete(id: number) {
         const removedUser = this.findOne(id);

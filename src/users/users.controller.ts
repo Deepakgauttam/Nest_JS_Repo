@@ -4,7 +4,7 @@ import { UsersService } from './users.service';
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) { }
-    
+
     // @Get()    // GET   /users or /users?role=value
     // findAll() {
     //     return [];
@@ -12,7 +12,7 @@ export class UsersController {
 
     @Get()    // GET   /users or /users?role=value
     findAll(@Query('role') role?:'admin' | 'intern' | 'engineer') {  
-        return [];
+        return this.usersService.findAll(role);
     }
     // @Get('interns')    // GET   /users/interns
     // findAllInterns() {
@@ -20,22 +20,22 @@ export class UsersController {
     // }
 
     @Get(':id')
-    findOne(@Param('id') id: number) { // GET /users/:id
-        return { id };
+    findOne(@Param('id') id: String) { // GET /users/:id
+        return this.usersService.findOne(+id);
     }
 
     @Post()
-    create(@Body() user: {}) {
-        return user;
+    create(@Body() user: { name: string, email: string, role: 'admin' | 'intern' | 'engineer' }) {
+        return this.usersService.create(user);
     }
 
     @Patch(':id') // PATCH /users/:id
-    update(@Param('id') id: string, @Body() userUpdate: {}) {
-        return { id, ...userUpdate }
+    update(@Param('id') id: string, @Body() userUpdate: { name?: string, email?: string, role?: 'admin' | 'intern' | 'engineer' }) {
+        return this.usersService.update(+id, userUpdate);
     }
     @Delete(':id') // DELETE /users/:id
     delete(@Param('id') id: string) {
-        return { id }
+        return this.usersService.delete(+id);
     }
 
 }
